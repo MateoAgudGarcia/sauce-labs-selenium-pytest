@@ -18,7 +18,7 @@ By following this POC, developers can quickly get started with these tools and a
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/mateoagudelo80/poc-poetry-selenium.git
+   git clone https://github.com/mateoagudgarcia/poc-poetry-selenium.git
    cd poc-poetry-selenium
    ```
 
