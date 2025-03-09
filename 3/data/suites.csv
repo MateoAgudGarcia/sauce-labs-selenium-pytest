@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","602","Google page should have 'Google' in the title","Search - Homepage","Sun Mar 09 23:46:07 GMT 2025","passed","Sun Mar 09 23:46:08 GMT 2025","","Google Tests","",""
+"","601","Google page should have a search input element","Search - Homepage","Sun Mar 09 23:46:08 GMT 2025","passed","Sun Mar 09 23:46:09 GMT 2025","","Google Tests","",""
