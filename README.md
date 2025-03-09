@@ -1,4 +1,4 @@
-# POC Poetry Selenium
+# Sauce Labs - Selenium - Pytest ![Status](https://github.com/MateoAgudGarcia/sauce-labs-selenium-pytest/actions/workflows/main-branch-deployment.yml/badge.svg)
 
 ## Description
 
@@ -18,8 +18,8 @@ By following this POC, developers can quickly get started with these tools and a
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/mateoagudgarcia/poc-poetry-selenium.git
-   cd poc-poetry-selenium
+   git clone git@github.com:mateoagudgarcia/sauce-labs-selenium-pytest.git
+   cd sauce-labs-selenium-pytest
    ```
 
 2. Activate the environment using Poetry:
@@ -41,7 +41,9 @@ To run the tests, use the following command:
 poetry run pytest
 ```
 
-## Test Reports
+### Last 30 builds deployed using GH Pages: [Sauce Labs - Selenium & Pytest - Github Page](https://mateoagudgarcia.github.io/sauce-labs-selenium-pytest)
+
+## Test Reports - Locally
 
 Generate and open the Allure report by running the provided script
 
