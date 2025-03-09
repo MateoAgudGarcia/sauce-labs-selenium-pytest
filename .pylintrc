@@ -1,0 +1,5 @@
+[MASTER]
+ignore=.git, __pycache__, .pytest_cache, allure-report, allure-results
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116
