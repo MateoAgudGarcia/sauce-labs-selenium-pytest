@@ -1,0 +1,38 @@
+[project]
+name = "poc-poetry-selenium"
+version = "0.1.0"
+description = "A proof of concept for using Poetry with Selenium and Pytest."
+authors = [
+    {name = "Mateo Agudelo Garcia",email = "mateo.agudelo80@eia.edu.co"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "selenium (>=4.29.0,<5.0.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "pytest-selenium (>=4.1.0,<5.0.0)",
+    "allure-pytest (>=2.13.5,<3.0.0)",
+    "allure-python-commons (>=2.13.5,<3.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [
+    { include = "tests" }
+]
+
+[tool.poetry.scripts]
+run_tests = "tests.test_selenium:test_google_search"
+recurso = "tests.py_test:test_uso_recurso_1"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "--alluredir", "allure-results",
+    "--clean-alluredir",
+]
+selenium_capture_debug = "failure"
+selenium_exclude_debug = "html:log:url"
