@@ -1,0 +1,1 @@
+[{"uid":"6cd921fa674ea85a","name":"Google page should have a search input element","time":{"start":1741566673810,"stop":1741566674483,"duration":673},"status":"passed","severity":"normal"},{"uid":"e6ff8bf1b78ce9bd","name":"Google page should have 'Google' in the title","time":{"start":1741566672844,"stop":1741566673422,"duration":578},"status":"failed","severity":"normal"}]
