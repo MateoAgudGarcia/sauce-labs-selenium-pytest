@@ -1,18 +1,5 @@
 import allure
-import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-
-@pytest.fixture
-def driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920,1080")
-    driver = webdriver.Chrome(options=chrome_options)
-    yield driver
-    driver.quit()
 
 @allure.parent_suite("Search - Homepage")
 @allure.suite("Google Tests")
@@ -22,7 +9,7 @@ def test_google_title(driver):
         driver.get("https://www.google.com")
 
     with allure.step("Check the title"):
-        assert 'Google' in driver.title
+        assert 'Google' == driver.title
 
 @allure.parent_suite("Search - Homepage")
 @allure.suite("Google Tests")
