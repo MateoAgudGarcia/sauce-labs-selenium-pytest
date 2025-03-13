@@ -29,8 +29,7 @@ def driver():
     with open("allure-results/environment.properties", "w") as f:
         f.write(f"Python.Version={python_version}\n")
         f.write(f"Selenium.Version={selenium_version}\n")
-        f.write("Browser=Chrome\n")
-        f.write(f"Browser.Version={chrome_version}\n")
+        f.write(f"Browser=Chrome {chrome_version}\n")
         f.write(f"Platform={os_info}\n")
 
     yield driver
