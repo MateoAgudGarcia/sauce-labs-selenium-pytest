@@ -13,7 +13,8 @@ disable=
     W1514,
     W1309,
     C0301,
-    E0401
+    E0401,
+    W0612
 
 [FORMAT]
 max-line-length=120

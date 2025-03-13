@@ -1,24 +1,22 @@
+import os
 import allure
-from selenium.webdriver.common.by import By
 
-@allure.parent_suite("Search - Homepage")
-@allure.suite("Google Tests")
-@allure.title("Google page should have 'Google' in the title")
-def test_google_title(driver):
-    with allure.step("Open Google page"):
-        driver.get("https://www.google.com")
+from dotenv import load_dotenv
+from src.login.login_page import LoginPage
 
-    with allure.step("Check the title"):
-        assert 'Google' == driver.title
+load_dotenv()
 
-@allure.parent_suite("Search - Homepage")
-@allure.suite("Google Tests")
-@allure.title("Google page should have a search input element")
-def test_google_search_input(driver):
-    with allure.step("Open Google page"):
-        driver.get("https://www.google.com")
 
-    with allure.step("Find the search input element"):
-        search_input = driver.find_element(By.NAME, "q")
-        visibility = search_input.is_displayed()
-        assert visibility is True
+@allure.parent_suite("Sauce Labs - Demo")
+@allure.suite("Login")
+@allure.title("User can login with valid credentials")
+def test_login_success(driver):
+    standard_user = os.getenv("STANDARD_USER")
+    password = os.getenv("PASSWORD")
+
+    with allure.step("Open the login page"):
+        driver.get("https://www.saucedemo.com")
+
+    with allure.step("Login with valid credentials"):
+        login_page = LoginPage(driver)
+        login_page.login(standard_user, password)
