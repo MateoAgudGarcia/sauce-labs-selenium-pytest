@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3028","Choose the second most expensive product, add it to the cart, and complete the order","Sauce Labs - Demo","Mon Mar 17 19:44:12 GMT 2025","passed","Mon Mar 17 19:44:15 GMT 2025","","User with valid credentials","",""
+"","1753","Choose a product, add it to the cart, and set a wrong personal data","Sauce Labs - Demo","Mon Mar 17 19:44:15 GMT 2025","passed","Mon Mar 17 19:44:17 GMT 2025","","User with valid credentials","",""
+"","430","Try to login with a locked out user","Sauce Labs - Demo","Mon Mar 17 19:44:18 GMT 2025","passed","Mon Mar 17 19:44:18 GMT 2025","","User with wrong credentials","",""
+"","420","Try to login with an invalid user","Sauce Labs - Demo","Mon Mar 17 19:44:18 GMT 2025","passed","Mon Mar 17 19:44:19 GMT 2025","","User with wrong credentials","",""
