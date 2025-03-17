@@ -3,7 +3,10 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 
 from src.authorized_pages.inventory_page import InventoryPage
-from utilities.utils import wait_for_element_to_be_clickable
+from utilities.utils import (
+    wait_for_element_to_be_clickable,
+    wait_for_element_to_be_visible,
+)
 
 
 class LoginPage:
@@ -25,6 +28,11 @@ class LoginPage:
     def _login_button(self) -> WebElement:
         return self._login_wrapper().find_element(By.CSS_SELECTOR, "input#login-button")
 
+    def _error_message(self) -> WebElement:
+        return self._login_wrapper().find_element(
+            By.CSS_SELECTOR, "h3[data-test='error']"
+        )
+
     def login(self, username: str, password: str):
         """
         Login with the provided username and password
@@ -36,6 +44,28 @@ class LoginPage:
             self.driver, self._login_button()
         )
         login_button.click()
+
+    def verify_an_invalid_error(self):
+        """
+        Verify if a user is invalid
+        """
+        wait_for_element_to_be_visible(self.driver, self._error_message())
+        assert self._error_message().is_displayed is True
+        assert (
+            self._error_message().text
+            == "Epic sadface: Username and password do not match any user in this service"
+        )
+
+    def verify_a_locked_out_user_error(self):
+        """
+        Verify if a user is locked out
+        """
+        wait_for_element_to_be_visible(self.driver, self._error_message())
+        assert self._error_message().is_displayed is True
+        assert (
+            self._error_message().text
+            == "Epic sadface: Sorry, this user has been locked out."
+        )
 
     def access_to_inventory(self) -> InventoryPage:
         """
