@@ -53,11 +53,23 @@ Generate and open the Allure report by running the provided script
 
 ## Project Structure
 
-```
-poc-poetry-selenium/
+```sh
+sauce-labs-selenium-pytest/
+├── src/
+│   ├── authorized_pages/
+│   │   └── authorized_page.py
+│   └── login/
+│       └── login_page.py
 ├── tests/
-│   ├── __init__.py
+│   ├── conftest.py
 │   └── test_selenium.py
+├── utilities/
+│   └── utils.py
+├── .flake8
+├── .gitignore
+├── .pylintrc
+├── .pre-commit-config.yaml
 ├── pyproject.toml
-└── README.md
+├── README.md
+└── poetry.lock
 ```
