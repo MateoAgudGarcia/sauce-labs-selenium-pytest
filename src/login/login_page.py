@@ -10,7 +10,7 @@ from utilities.utils import (
 
 
 class LoginPage:
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: WebDriver) -> None:
         self.driver: WebDriver = driver
         self.root_element = self.driver.find_element(
             By.CSS_SELECTOR, ".login_container"
@@ -33,9 +33,15 @@ class LoginPage:
             By.CSS_SELECTOR, "h3[data-test='error']"
         )
 
-    def login(self, username: str, password: str):
+    def login(self, username: str, password: str) -> None:
         """
-        Login with the provided username and password
+        Login with the provided username and password.
+
+        Args:
+            username : str
+                The username to log in with.
+            password : str
+                The password to log in with.
         """
         self._username_input().send_keys(username)
         self._password_input().send_keys(password)
@@ -45,9 +51,9 @@ class LoginPage:
         )
         login_button.click()
 
-    def verify_an_invalid_error(self):
+    def verify_an_invalid_error(self) -> None:
         """
-        Verify if a user is invalid
+        Verify if a user is invalid.
         """
         wait_for_element_to_be_visible(self.driver, self._error_message())
         assert self._error_message().is_displayed is True
@@ -56,9 +62,9 @@ class LoginPage:
             == "Epic sadface: Username and password do not match any user in this service"
         )
 
-    def verify_a_locked_out_user_error(self):
+    def verify_a_locked_out_user_error(self) -> None:
         """
-        Verify if a user is locked out
+        Verify if a user is locked out.
         """
         wait_for_element_to_be_visible(self.driver, self._error_message())
         assert self._error_message().is_displayed is True
@@ -69,6 +75,9 @@ class LoginPage:
 
     def access_to_inventory(self) -> InventoryPage:
         """
-        Access to inventory page
+        Access the inventory page.
+
+        Returns:
+            InventoryPage: An instance of the InventoryPage class.
         """
         return InventoryPage(self.driver)

@@ -7,7 +7,7 @@ from utilities.utils import wait_for_element_to_be_visible
 
 
 class CartList:
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: WebDriver) -> None:
         self.driver: WebDriver = driver
         self.root_element = self.driver.find_element(By.CSS_SELECTOR, "div.cart_list")
 
@@ -44,9 +44,15 @@ class CartList:
             By.CSS_SELECTOR, "div.inventory_item_price"
         )
 
-    def verify_price_by_product_index(self, index: int, price: str):
+    def verify_price_by_product_index(self, index: int, price: str) -> None:
         """
-        Verify price by product index - Position
+        Verify the price of a product by its index.
+
+        Args:
+            index : int
+                The index of the product in the cart.
+            price : str
+                The expected price of the product.
         """
         wait_for_element_to_be_visible(
             self.driver, self._item_price_bar_by_index(index)
@@ -54,9 +60,15 @@ class CartList:
         wait_for_element_to_be_visible(self.driver, self._item_price_by_index(index))
         assert self._item_price_by_index(index).text == price
 
-    def verify_quantity_by_product_index(self, index: int, quantity: int):
+    def verify_quantity_by_product_index(self, index: int, quantity: int) -> None:
         """
-        Verify quantity by product index - Position
+        Verify the quantity of a product by its index.
+
+        Args:
+            index : int
+                The index of the product in the cart.
+            quantity : int
+                The expected quantity of the product.
         """
         wait_for_element_to_be_visible(self.driver, self._cart_items()[index])
         wait_for_element_to_be_visible(self.driver, self._item_quantity_by_index(index))

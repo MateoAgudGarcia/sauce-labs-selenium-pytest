@@ -18,7 +18,7 @@ PASSWORD = os.getenv("PASSWORD")
     "Choose the second most expensive product,"
     + " add it to the cart, and complete the order"
 )
-def test_completed_order(driver):
+def test_completed_order(driver) -> None:
     with allure.step("Open the login page"):
         driver.get("https://www.saucedemo.com")
 
@@ -69,7 +69,7 @@ def test_completed_order(driver):
 @allure.parent_suite("Sauce Labs - Demo")
 @allure.suite("User with valid credentials")
 @allure.title("Choose a product, add it to the cart, and set a wrong personal data")
-def test_wrong_shipping_information(driver):
+def test_wrong_shipping_information(driver) -> None:
     with allure.step("Open the login page"):
         driver.get("https://www.saucedemo.com")
 
@@ -111,7 +111,7 @@ def test_wrong_shipping_information(driver):
 @allure.parent_suite("Sauce Labs - Demo")
 @allure.suite("User with wrong credentials")
 @allure.title("Try to login with a locked out user")
-def test_with_a_locked_out_user(driver):
+def test_with_a_locked_out_user(driver) -> None:
     with allure.step("Open the login page"):
         driver.get("https://www.saucedemo.com")
 

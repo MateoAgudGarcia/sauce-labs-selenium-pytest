@@ -46,18 +46,18 @@ class CheckoutPage(AuthorizedPage):
     def _continue_button(self) -> WebElement:
         return self._checkout_buttons().find_element(By.ID, "continue")
 
-    def fill_out_personal_information(self):
+    def fill_out_personal_information(self) -> None:
         """
-        Define personal information with dummy values created by faker
+        Define personal information with dummy values created by faker.
         """
         wait_for_element_to_be_visible(self.driver, self._checkout_info())
         self._first_name().send_keys(faker.first_name())
         self._last_name().send_keys(faker.last_name())
         self._zip_code().send_keys(faker.zipcode())
 
-    def fill_out_with_empty_data(self):
+    def fill_out_with_empty_data(self) -> None:
         """
-        Define wrong personal data with dummy values created by faker
+        Define wrong personal data with dummy values created by faker.
         """
         wait_for_element_to_be_visible(self.driver, self._checkout_info())
         self._first_name().send_keys(faker.first_name())
@@ -67,9 +67,12 @@ class CheckoutPage(AuthorizedPage):
         assert "Error: " in self._error_message().text
         assert " is required" in self._error_message().text
 
-    def go_to_overview(self):
+    def go_to_overview(self) -> OverviewPage:
         """
-        Go to overview page
+        Go to the overview page.
+
+        Returns:
+            OverviewPage: An instance of the OverviewPage class.
         """
         wait_for_element_to_be_clickable(self.driver, self._continue_button())
         self._continue_button().click()

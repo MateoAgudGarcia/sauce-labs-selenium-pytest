@@ -24,7 +24,7 @@ class CheckoutComplete(AuthorizedPage):
             By.ID, "back-to-products"
         )
 
-    def verify_checkout_is_completed(self):
+    def verify_checkout_is_completed(self) -> None:
         """
         Verify that the checkout is completed
         """
@@ -35,7 +35,7 @@ class CheckoutComplete(AuthorizedPage):
             + " just as fast as the pony can get there!"
         )
 
-    def go_back_to_products(self):
+    def go_back_to_products(self) -> None:
         """
         Click on Back to Products button
         """

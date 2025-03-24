@@ -8,7 +8,6 @@ from utilities.utils import wait_for_element_to_be_visible
 
 
 class OverviewPage(AuthorizedPage, CartList):
-
     def _checkout_summary_container(self) -> WebElement:
         return self.root_element.find_element(By.ID, "checkout_summary_container")
 
@@ -38,30 +37,45 @@ class OverviewPage(AuthorizedPage, CartList):
     def _button_finish(self) -> WebElement:
         return self._cart_footer().find_element(By.ID, "finish")
 
-    def verify_subtotal(self, subtotal: str):
+    def verify_subtotal(self, subtotal: str) -> None:
         """
-        Verify subtotal
+        Verify the subtotal of the order.
+
+        Args:
+            subtotal : str
+                The expected subtotal value.
         """
         wait_for_element_to_be_visible(self.driver, self._subtotal_label())
         assert subtotal in self._subtotal_label().text
 
-    def verify_tax(self, tax: str):
+    def verify_tax(self, tax: str) -> None:
         """
-        Verify tax
+        Verify the tax of the order.
+
+        Args:
+            tax : str
+                The expected tax value.
         """
         wait_for_element_to_be_visible(self.driver, self._tax_label())
         assert tax in self._tax_label().text
 
-    def verify_total(self, total: str):
+    def verify_total(self, total: str) -> None:
         """
-        Verify total
+        Verify the total of the order.
+
+        Args:
+            total : str
+                The expected total value.
         """
         wait_for_element_to_be_visible(self.driver, self._total_label())
         assert total in self._total_label().text
 
-    def go_to_completed_order(self):
+    def go_to_completed_order(self) -> CheckoutComplete:
         """
-        Click on Finish button
+        Click on the Finish button to complete the order.
+
+        Returns:
+            CheckoutComplete: An instance of the CheckoutComplete class.
         """
         wait_for_element_to_be_visible(self.driver, self._button_finish())
         self._button_finish().click()

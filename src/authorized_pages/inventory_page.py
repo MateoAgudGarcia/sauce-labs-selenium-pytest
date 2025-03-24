@@ -41,9 +41,13 @@ class InventoryPage(AuthorizedPage):
             By.CSS_SELECTOR, "a[id$='title_link']"
         )
 
-    def select_product_sort(self, value: str):
+    def select_product_sort(self, value: str) -> None:
         """
-        Select the product sort option
+        Select the product sort option.
+
+        Args:
+            value : str
+                The sorting option to select (e.g., "Price (low to high)").
         """
         select_product_sort = Select(self._product_sort_container())
         select_product_sort.select_by_visible_text(value)
@@ -51,7 +55,14 @@ class InventoryPage(AuthorizedPage):
 
     def open_product_details(self, product_index: int) -> ProductDetails:
         """
-        Open the product details page
+        Open the product details page.
+
+        Args:
+            product_index : int
+                The index of the product to open.
+
+        Returns:
+            ProductDetails: An instance of the ProductDetails class.
         """
         product = self._product_title_link_by_index(product_index)
         wait_for_element_to_be_clickable(self.driver, product)

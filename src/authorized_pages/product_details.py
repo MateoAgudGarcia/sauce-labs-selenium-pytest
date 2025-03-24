@@ -53,31 +53,38 @@ class ProductDetails(AuthorizedPage):
     def _remove_from_cart_button(self) -> WebElement:
         return self._inventory_details_desc_container().find_element(By.ID, "remove")
 
-    def verify_product_price(self, price: str):
+    def verify_product_price(self, price: str) -> None:
         """
-        Verify that the product price is equal to the given price
+        Verify that the product price is equal to the given price.
+
+        Args:
+            price : str
+                The expected price of the product.
         """
         wait_for_element_to_be_visible(self.driver, self._inventory_item_container())
         wait_for_element_to_be_visible(self.driver, self._inventory_details_price())
         assert self._inventory_details_price().text == price
 
-    def add_product_to_cart(self):
+    def add_product_to_cart(self) -> None:
         """
-        Add the product to the cart
+        Add the product to the cart.
         """
         wait_for_element_to_be_visible(self.driver, self._add_to_cart_button())
         self._add_to_cart_button().click()
 
-    def remove_product_from_cart(self):
+    def remove_product_from_cart(self) -> None:
         """
-        Remove the product from the cart
+        Remove the product from the cart.
         """
         wait_for_element_to_be_visible(self.driver, self._remove_from_cart_button())
         self._remove_from_cart_button().click()
 
     def go_to_shopping_cart(self) -> ShoppingCart:
         """
-        Go to the shopping cart page
+        Go to the shopping cart page.
+
+        Returns:
+            ShoppingCart: An instance of the ShoppingCart class.
         """
         wait_for_element_to_be_clickable(self.driver, self._shopping_cart_link())
         self._shopping_cart_link().click()

@@ -32,9 +32,23 @@ class ShoppingCart(AuthorizedPage, CartList):
     def _button_checkout(self) -> WebElement:
         return self._cart_footer().find_element(By.ID, "checkout")
 
+    def remove_product_by_index(self, index: int = 0) -> None:
+        """
+        Remove a product from the cart by its index.
+
+        Args:
+            index : int
+                The index of the product to remove from the cart.
+        """
+        wait_for_element_to_be_clickable(self.driver, self._remove_product_by_index(index))
+        self._remove_product_by_index(index).click()
+
     def go_to_checkout(self) -> CheckoutPage:
         """
-        Click on Checkout button
+        Click on the Checkout button to proceed to the checkout page.
+
+        Returns:
+            CheckoutPage: An instance of the CheckoutPage class.
         """
         wait_for_element_to_be_clickable(self.driver, self._button_checkout())
         self._button_checkout().click()
